@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import axios from "axios";
 const AddMovieForm = (props) => {
   const { push } = useHistory();
 
-  const { setMovies } = props;
+  
   const [movie, setMovie] = useState({
     title: "",
     director: "",
@@ -24,9 +24,7 @@ const AddMovieForm = (props) => {
   };
 
   const handleSubmit = (e) => {
-    // console.log(params);
     e.preventDefault();
-    //console.log('movie: ', movie);
     axios
       .post(`http://localhost:9000/api/movies/`, movie)
       .then((res) => {
@@ -37,8 +35,6 @@ const AddMovieForm = (props) => {
         console.log(err);
       });
   };
-
-  // console.log(movie);
 
   const { title, director, genre, metascore, description } = movie;
 

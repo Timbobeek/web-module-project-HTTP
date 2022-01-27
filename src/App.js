@@ -19,7 +19,6 @@ const App = (props) => {
   useEffect(()=>{
     axios.get('http://localhost:9000/api/movies')
       .then(res => {
-        console.log(res.data)
         setMovies(res.data);
       })
       .catch(err => {
